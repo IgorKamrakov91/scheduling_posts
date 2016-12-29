@@ -13,6 +13,15 @@ class Post < ApplicationRecord
       self.published_at = nil
     when 'Published'
       self.published_at = Time.zone.now
+    else
+      self.published_at = published_at
     end
+
+    # the same thing
+    # self.published_at = nil if status == 'Draft'
+    # self.published_at = Time.zone.now if status == 'Published'
+
+    # because of before_validation return statements
+    true
   end
 end
