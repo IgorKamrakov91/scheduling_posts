@@ -26,7 +26,7 @@
     <%= f.select :status, ['Draft', 'Published', 'Scheduled'], selected: status_for(@post) %>
   </div>
 
-  <div class="field">
+  <div class="field published-field">
     <%= f.label :published_at, 'Publish At' %>
     <%= f.datetime_select :published_at %>
   </div>

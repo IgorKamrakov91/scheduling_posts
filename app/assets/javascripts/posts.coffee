@@ -1,3 +1,15 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+change_visibility = (status) ->
+  console.log status
+
+  if status == "Scheduled"
+    $(".published-field").show()
+  else
+    $(".published-field").hide()
+
+jQuery ->
+  # check the current selected status and show/hide the published at field
+  # and do the same thing when the status field changes
+  change_visibility($('#post_status :selected').text())
+
+  $('#post_status').on 'change', (e) ->
+    console.log $(this).find(":selected").text()
